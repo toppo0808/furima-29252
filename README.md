@@ -18,8 +18,8 @@ has_many: comments
 ## itemsテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-|item_name         |string    | null: false                    |
-|item_explanation  |text      | null: false                    |
+|name              |string    | null: false                    |
+|explanation       |text      | null: false                    |
 |category_id       |integer   | null: false                    |
 |status_id         |integer   | null: false                    |
 |prise             |integer   | null: false                    |
@@ -47,7 +47,7 @@ has_one: user_address
 ## user_addressテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-| buy_id           | integer  | null: false, foreign_key: true |
+| buy_id           | string   | null: false, foreign_key: true |
 | prefectures      | integer  | null: false                    |
 | postal_code      | integer  | null: false                    |
 | city             | integer  | null: false                    |

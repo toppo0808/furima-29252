@@ -38,7 +38,7 @@ has_many: comments
 | Colum  | Type     | Option                         |
 |--------|----------|--------------------------------|
 | user   | integer  | null: false, foreign_key: true |
-| items  | integer  | null: false, foreign_key: true |
+| item   | integer  | null: false, foreign_key: true |
 
 ### Association
 belong_to: user
@@ -48,10 +48,10 @@ has_one: user_address
 ## user_addressテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-| buy_id           | string   | null: false, foreign_key: true |
+| buy_id           | integer  | null: false, foreign_key: true |
 | prefectures      | string   | null: false                    |
-| postal_code      | string   | null: false                    |
-| city             | string   | null: false                    |
+| postal_code      | integer  | null: false                    |
+| city             | integer  | null: false                    |
 | house_number     | string   | null: false                    |
 | building_number  | string   |                                |
 | telephone_number | string   | null: false                    |

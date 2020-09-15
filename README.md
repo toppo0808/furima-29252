@@ -49,8 +49,8 @@ has_one: user_address
 |------------------|----------|--------------------------------|
 | buy_id           | string   | null: false, foreign_key: true |
 | prefectures      | integer  | null: false                    |
-| postal_code      | integer  | null: false                    |
-| city             | integer  | null: false                    |
+| postal_code      | string   | null: false                    |
+| city             | string   | null: false                    |
 | house_number     | string   | null: false                    |
 | building_number  | string   |                                |
 | telephone_number | string   | null: false                    |
@@ -63,8 +63,8 @@ belong_to: buy
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
 | user    | references | null: false, foreign_key: true |
-| items   | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
-belong_to: users
-belong_to: items
+belong_to: user
+belong_to: item

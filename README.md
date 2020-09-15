@@ -4,7 +4,6 @@
 | nickname           |string    | null: false |
 | email              |string    | null: false |
 | password           |string    | null: false |
-| password-confirmed |string    | null: false |
 | first-name         |string    | null: false |
 | last-name          |string    | null: false |
 | birthday           |date      | null: false |
@@ -13,7 +12,7 @@
 
 ### Association
 has_many: items
-has_many: buys, though: items
+has_many: buys
 has_many: comments
 
 ## itemsテーブル
@@ -21,13 +20,13 @@ has_many: comments
 |------------------|----------|--------------------------------|
 |item_name         |string    | null: false                    |
 |item_explanation  |text      | null: false                    |
-|category          |integer   | null: false                    |
-|status            |integer   | null: false                    |
+|category_id       |integer   | null: false                    |
+|status_id         |integer   | null: false                    |
 |prise             |integer   | null: false                    |
 |user_id           |integer   | null: false, foreign_key: true |
-|fee               |integer   | null: false                    |
-|area              |integer   | null: false                    |
-|date              |integer   | null: false                    |
+|fee_id            |integer   | null: false                    |
+|area_id           |integer   | null: false                    |
+|date_id           |integer   | null: false                    |
 
 ### Association
 belong_to: user
@@ -37,8 +36,8 @@ has_many: comments
 ## buyテーブル
 | Colum  | Type     | Option                         |
 |--------|----------|--------------------------------|
-| user   | integer  | null: false, foreign_key: true |
-| item   | integer  | null: false, foreign_key: true |
+| user_id| integer  | null: false, foreign_key: true |
+| item_id| integer  | null: false, foreign_key: true |
 
 ### Association
 belong_to: user
@@ -49,7 +48,7 @@ has_one: user_address
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
 | buy_id           | integer  | null: false, foreign_key: true |
-| prefectures      | string   | null: false                    |
+| prefectures      | integer  | null: false                    |
 | postal_code      | integer  | null: false                    |
 | city             | integer  | null: false                    |
 | house_number     | string   | null: false                    |

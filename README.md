@@ -7,8 +7,8 @@
 | first-name         |string    | null: false |
 | last-name          |string    | null: false |
 | birthday           |date      | null: false |
-| first-hurigana     |string    | null: false |
-| last-hurigana      |string    | null: false |
+| first-furigana     |string    | null: false |
+| last-furigana      |string    | null: false |
 
 ### Association
 has_many: items

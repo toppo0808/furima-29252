@@ -44,10 +44,10 @@ belong_to: user
 belong_to: item
 has_one: user_address
 
-## user_addressテーブル
+## user_addressesテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-| buy_id           | string   | null: false, foreign_key: true |
+| buy_id           | integer   | null: false, foreign_key: true |
 | prefectures      | integer  | null: false                    |
 | postal_code      | string   | null: false                    |
 | city             | string   | null: false                    |

@@ -4,7 +4,8 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :email
-    validates :password, '/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}$/i'
+    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}\z/i
+    validates :password, format: {with: PASSWORD_REGEX}
     NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
     FURIGANA_REGEX = /\A[ァ-ヶー－]+\z/
     validates :first_name, format: { with: NAME_REGEX, message: "is invalid. Input full-width characters."}

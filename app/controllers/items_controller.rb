@@ -24,4 +24,7 @@ class ItemsController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname,:first_name,:lasa_name,:first_furigana,:last_furigana,:birthday)
   end
+
+  def item_params
+    params.require(:item).permit(:content, :image).marge(user_id:current_user.id)
 end

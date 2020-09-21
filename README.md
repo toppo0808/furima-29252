@@ -18,6 +18,7 @@ has_many: comments
 ## itemsテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
+|image             |text      | null: false                    |
 |name              |string    | null: false                    |
 |explanation       |text      | null: false                    |
 |category_id       |integer   | null: false                    |
@@ -29,7 +30,7 @@ has_many: comments
 |date_id           |integer   | null: false                    |
 
 ### Association
-belong_to: user
+belongs_to: user
 has_one: buy
 has_many: comments
 
@@ -40,8 +41,8 @@ has_many: comments
 | item_id| integer  | null: false, foreign_key: true |
 
 ### Association
-belong_to: user
-belong_to: item
+belongs_to: user
+belongs_to: item
 has_one: user_address
 
 ## user_addressesテーブル
@@ -56,7 +57,7 @@ has_one: user_address
 | telephone_number | string   | null: false                    |
 
 ### Association
-belong_to: buy
+belongs_to: buy
 
 ## comments 
 | Column  | Type       | Options                        |
@@ -66,5 +67,5 @@ belong_to: buy
 | item    | references | null: false, foreign_key: true |
 
 ### Association
-belong_to: user
-belong_to: item
+belongs_to: user
+belongs_to: item

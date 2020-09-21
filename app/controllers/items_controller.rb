@@ -1,13 +1,14 @@
 class ItemsController < ApplicationController
-
-  before_action :authenticate_user!
+ 
 
   def index
+    # @items = Item.order("created_at DESC")
   end
 
   def new
-    @user = User.new
-  end
+    @item = Item.new
+    
+   end
 
   def create
     @user = user.new(user_params)
@@ -25,6 +26,8 @@ class ItemsController < ApplicationController
     params.require(:user).permit(:nickname,:first_name,:lasa_name,:first_furigana,:last_furigana,:birthday)
   end
 
-  def item_params
-    params.require(:item).permit(:content, :image).marge(user_id:current_user.id)
+  # def item_params
+  #   params.require(:item).permit(:name,:explanation,:category_id,:status_id,:price,:area_id,:sending_date_id,:image).marge(user_id: current_user.id)
+  # end
+
 end

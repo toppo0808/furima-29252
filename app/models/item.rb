@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   end
 
   validates :category_id, numericality: { other_than: 1 } 
-  validates :area_id, numericality: { other_than: 1 } 
+  validates :area_id, numericality: { other_than: 0 } 
   validates :status_id, numericality: { other_than: 1 } 
   validates :sending_date_id, numericality: { other_than: 1 } 
 

@@ -70,6 +70,11 @@ RSpec.describe Item, type: :model do
     @item.valid?
     expect(@item.errors.full_messages).to include("Price This site is only for under 99999999 and over 300")
    end
+    it "価格が上限を超えたら保存できない" do
+    @item.price = "100000000" 
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Price This site is only for under 99999999 and over 300")
+    end
     it "価格は半角英数字のみでしか投稿できない" do
     @item.price= "３００"
     @item.valid?

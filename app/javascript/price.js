@@ -11,9 +11,9 @@ function price(){
          console.log(value)
          
        if (value >= 300 && value <= 9999999){
-         let fee = value * 0.1
+         let fee = Math.floor(value * 0.1)
          console.log(fee)
-         let gains = value - fee
+         let gains = Math.floor(value - fee)
          console.log(gains)
          add_tax.textContent = fee;
          profit.textContent = gains;

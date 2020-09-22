@@ -8,13 +8,10 @@ function price(){
    // 価格入力時に手数料、利益計算
      priceInput.addEventListener('keyup', () => {
          const value = priceInput.value; //value（入力の金額を定義）
-         console.log(value)
          
        if (value >= 300 && value <= 9999999){
          let fee = Math.floor(value * 0.1)
-         console.log(fee)
          let gains = Math.floor(value - fee)
-         console.log(gains)
          add_tax.textContent = fee;
          profit.textContent = gains;
      } else {

@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :area
   belongs_to_active_hash :sending_date
+  belongs_to_active_hash :fee
   belongs_to :user
   has_one_attached :image
 
@@ -13,7 +14,7 @@ class Item < ApplicationRecord
     validates :explanation
     validates :category_id
     validates :status_id
-    validates_inclusion_of :price, in: 300..99999999, message: 'This site is only for under 99999999 and over 300'
+    validates_inclusion_of :price, in: 300..99999999
     validates :fee_id
     validates :area_id
     validates :sending_date_id

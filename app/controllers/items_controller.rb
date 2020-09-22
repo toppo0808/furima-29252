@@ -1,16 +1,18 @@
 class ItemsController < ApplicationController
+ 
 
   def index
+      @items = Item.all
   end
 
   def new
-    @user = User.new
+    @item = Item.new
   end
 
   def create
-    @user = user.new(user_params)
-    if @user.vilid?
-      @user.save
+    @item = Item.new(item_params)
+    if @item.valid?
+      @item.save
       return redirect_to root_path
     else
       render "new"
@@ -19,7 +21,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:nickname,:first_name,:lasa_name,:first_furigana,:last_furigana,:birthday)
+  def item_params
+    params.require(:item).permit(:name,:explanation,:category_id,:status_id,:price,:area_id,:fee_id,:sending_date_id,:image).merge(user_id: current_user.id)
   end
+
 end

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
- before_action :find_params, if: :devise_controller?
+ before_action :find_params, only: [:show,:destroy]
 
   def index
       @items = Item.all.order("created_at DESC")
@@ -20,13 +20,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-   find_params
   end
 
   def destroy
-    find_params
-    if @item.valid?
-       @item.destroy
+     if  @item.destroy
        return redirect_to root_path
     else
        render "show"

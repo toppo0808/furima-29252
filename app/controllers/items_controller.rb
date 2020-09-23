@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
- 
+ before_action :find_params, if: :devise_controller?
 
   def index
       @items = Item.all.order("created_at DESC")
@@ -20,13 +20,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+   find_params
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    return redirect_to root_path
+    find_params
+    if @item.valid?
+       @item.destroy
+       return redirect_to root_path
+    else
+       render "show"
+    end
   end
   
 
@@ -36,4 +40,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name,:explanation,:category_id,:status_id,:price,:area_id,:fee_id,:sending_date_id,:image).merge(user_id: current_user.id)
   end
 
+    def find_params
+      @item = Item.find(params[:id])
+    end
 end

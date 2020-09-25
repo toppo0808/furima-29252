@@ -48,7 +48,7 @@ has_one: user_address
 ## user_addressesテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-| buy_id           | integer   | null: false, foreign_key: true |
+| buy_id           | integer  | null: false, foreign_key: true |
 | prefectures      | integer  | null: false                    |
 | postal_code      | string   | null: false                    |
 | city             | string   | null: false                    |

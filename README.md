@@ -34,7 +34,7 @@ belongs_to: user
 has_one: buy
 has_many: comments
 
-## buyテーブル
+## payテーブル
 | Colum  | Type     | Option                         |
 |--------|----------|--------------------------------|
 | user_id| integer  | null: false, foreign_key: true |
@@ -48,7 +48,7 @@ has_one: user_address
 ## user_addressesテーブル
 | Colum            | Type     | Option                         |
 |------------------|----------|--------------------------------|
-| buy_id           | integer  | null: false, foreign_key: true |
+| pay_id           | integer  | null: false, foreign_key: true |
 | prefectures      | integer  | null: false                    |
 | postal_code      | string   | null: false                    |
 | city             | string   | null: false                    |
@@ -57,7 +57,7 @@ has_one: user_address
 | telephone_number | string   | null: false                    |
 
 ### Association
-belongs_to: buy
+belongs_to: pay
 
 ## comments 
 | Column  | Type       | Options                        |

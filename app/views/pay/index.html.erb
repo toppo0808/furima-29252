@@ -1,4 +1,4 @@
-<%= render "shared/second-header"%>
+<%= render "shared/second-header" %>
 
 <div class='transaction-contents'>
   <div class='transaction-main'>
@@ -33,6 +33,7 @@
 
     <%= form_with model: @pay ,url: item_pay_index_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
+     <%= render 'shared/error_messages', model: @%>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力

@@ -9,7 +9,7 @@ end
   def  create
   @user = user.new(user_params)
   if @user.vilid?
-    @user.save
+     @user.save
     return redirect_to root_path
   else
     render "new"

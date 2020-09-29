@@ -1,10 +1,13 @@
 class Pay < ApplicationRecord
-belongs_to: user
-belongs_to: item
+
+belongs_to :user
+belongs_to :item
+has_one :user_address
 
   with_options presence: true do
-    validate :user_id
-    validate :item_id
+    validates :user_id
+    validates :item_id
   end
 
+  
 end

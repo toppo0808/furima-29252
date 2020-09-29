@@ -6,7 +6,8 @@ class UserAddress < ApplicationRecord
   with_options presence: true do
     validates :pay_id
     validates :area_id
-    validates :postal_code
+    POSTALREGEX = /\A\d{3}[-]\d{4}\z/
+    validates :postal_code,format: {with: POSTALREGEX}
     validates :city
     validates :house_number
     validates :telephone_number, length: { minimum: 11 }

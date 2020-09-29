@@ -1,5 +1,4 @@
 function price(){
-  console.log("aaa")
   // 画面が読み込まれた時に動くように定義する
    const priceInput = document.getElementById("item-price");
    const add_tax = document.getElementById("add-tax-price");//販売手数料

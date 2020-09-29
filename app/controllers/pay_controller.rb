@@ -10,6 +10,7 @@ class PayController < ApplicationController
     @item = Item.find(params[:item_id])
     @pay = PayUserAddress.new(pay_params)
    if @pay.valid?
+    pay_item
     @pay.save
     return  redirect_to root_path
    else
@@ -27,6 +28,19 @@ class PayController < ApplicationController
     unless current_user
       redirect_to new_user_session_path
     end
+  end
+
+  def order_params
+    params.permit(:price,:token)
+  end
+
+  def pay_item
+    Payjp.api_key = "sk_test_3807f2e50783694c30cb22c1"  
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: order_params[:token],
+      currency:'jpy'
+    )
   end
 
 end

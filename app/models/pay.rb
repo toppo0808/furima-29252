@@ -8,6 +8,4 @@ has_one :user_address
     validates :user_id
     validates :item_id
   end
-
-  
 end

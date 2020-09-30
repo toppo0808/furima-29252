@@ -138,13 +138,13 @@
           <%# <%= image_tag "item-sample.png", class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-          <% if item_id.valid? %>
+          <% if item.pay %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
-          
-          <%# //商品が売れていればsold outを表示しましょう %>
           <% end %>
+          <%# //商品が売れていればsold outを表示しましょう %>
+          
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -160,7 +160,7 @@
           </div>
         </div>
          <% end %>
-        <% end %>
+      <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 

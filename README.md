@@ -31,7 +31,7 @@ has_many: comments
 
 ### Association
 belongs_to: user
-has_one: buy
+has_one: pay
 has_many: comments
 
 ## payテーブル

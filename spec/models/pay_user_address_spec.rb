@@ -54,8 +54,14 @@ RSpec.describe PayUserAddress, type: :model do
    it "電話番号が正しく入力されていないと購入できない" do
     @pay_user_address.telephone_number = "111111111111" 
     @pay_user_address.valid?
-    expect(@pay_user_address.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
+    expect(@pay_user_address.errors.full_messages).to include("Telephone number is invalid")
    end
+
+   it "電話番号にハイフンがあると購入できない" do
+   @pay_user_address.telephone_number = "111-1111-1111"
+   @pay_user_address.valid?
+   expect(@pay_user_address.errors.full_messages).to include("Telephone number is invalid")
+  end
 
    it "カード情報がないと購入できない" do
     @pay_user_address.token = nil

@@ -11,7 +11,6 @@ class PayController < ApplicationController
   end
 
   def create
-    # @item = Item.new(buy_params)
     @pay = PayUserAddress.new(pay_params)
    if @pay.valid?
     pay_item

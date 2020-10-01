@@ -1,15 +1,18 @@
 class PayController < ApplicationController
-  before_action :sign_in, only: [:index]
+  before_action :authenticate_user!
+  before_action :buy_params, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
-    @pay = PayUserAddress.new
+    unless current_user
+      redirect_to root_path
+    else
+      @pay = PayUserAddress.new
+    end
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    # @item = Item.new(buy_params)
     @pay = PayUserAddress.new(pay_params)
-    binding.pry
    if @pay.valid?
     pay_item
     @pay.save
@@ -25,10 +28,8 @@ class PayController < ApplicationController
     params.require(:pay_user_address).permit(:user_id,:item_id,:pay_id,:area_id,:postal_code,:city,:house_number,:telephone_number,:building_number).merge(user_id: current_user.id, item_id: params[:item_id], token: order_params[:token])
   end
 
-  def sign_in
-    unless current_user
-      redirect_to new_user_session_path
-    end
+  def buy_params
+    @item = Item.find(params[:item_id])
   end
 
   def order_params

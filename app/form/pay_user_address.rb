@@ -9,7 +9,7 @@ class PayUserAddress
     validates :postal_code,format: {with: POSTALREGEX}
     validates :city
     validates :house_number
-    validates :telephone_number, length: { minimum: 11 }
+    validates :telephone_number, length: { minimum: 10, maximum: 11 }
     validates :token
   end
   validates :area_id, numericality: { other_than: 0 } 

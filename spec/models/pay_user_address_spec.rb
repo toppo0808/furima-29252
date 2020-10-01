@@ -27,6 +27,13 @@ RSpec.describe PayUserAddress, type: :model do
     @pay_user_address.valid?
     expect(@pay_user_address.errors.full_messages).to include("Area can't be blank")
    end
+
+   it "都道府県が正しく選択されていないと購入できない" do
+    @pay_user_address.area_id = 0
+    @pay_user_address.valid?
+    expect(@pay_user_address.errors.full_messages).to include("Area must be other than 0")
+  end
+
    it "市区町村が記入されていないと購入できない" do
     @pay_user_address.city = nil
     @pay_user_address.valid?
@@ -39,9 +46,15 @@ RSpec.describe PayUserAddress, type: :model do
    end
 
    it "電話番号が記入されていないと購入できない" do
-    @pay_user_address.telephone_number = nil
+    @pay_user_address.telephone_number = ""
     @pay_user_address.valid?
-    expect(@pay_user_address.errors.full_messages).to include("Telephone number is too short (minimum is 11 characters)")
+    expect(@pay_user_address.errors.full_messages).to include("Telephone number can't be blank")
+   end
+
+   it "電話番号が正しく入力されていないと購入できない" do
+    @pay_user_address.telephone_number = "111111111111" 
+    @pay_user_address.valid?
+    expect(@pay_user_address.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
    end
 
    it "カード情報がないと購入できない" do

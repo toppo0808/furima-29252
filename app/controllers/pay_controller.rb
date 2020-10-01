@@ -1,13 +1,8 @@
 class PayController < ApplicationController
-  before_action :authenticate_user!
   before_action :buy_params, only: [:index, :create]
-
+  before_action :move_to_signed_in,  expect: [:index]
   def index
-    unless current_user
-      redirect_to root_path
-    else
       @pay = PayUserAddress.new
-    end
   end
 
   def create
@@ -44,4 +39,10 @@ class PayController < ApplicationController
     )
   end
 
+  def move_to_signed_in
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+  
 end

@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
  before_action :find_params, only: [:show,:destroy,:edit,:update]
- before_action :authenticate_user!, only: [:index]
   def index
       @items = Item.all.order("created_at DESC")
   end
